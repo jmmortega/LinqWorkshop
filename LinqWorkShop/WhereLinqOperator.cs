@@ -68,16 +68,19 @@ namespace LinqWorkShop
         public static void FirstExercise()
         {
             //Filter actions movies and get the last one
+            var lastActionMovie = DataGeneration.CreateMovies().LastOrDefault(x => x.Genre == GenreEnum.Action);
         }
 
         public static void SecondExercise()
         {
             //Filter comedy movies and Duration it's 90 minutes or more
+            var comedyMoviesMore90 = DataGeneration.CreateMovies().Where(x => x.Genre == GenreEnum.Comedy && x.Duration >= TimeSpan.FromMinutes(90));
         }
 
         public static void ThirdExercise()
         {
             //Take the first element or Default that have an actor that old 40 or more.
+            var actor40 = DataGeneration.CreateMovies().SelectMany(x => x.Actors).FirstOrDefault(x => x.Age >= 40);
         }
 
 

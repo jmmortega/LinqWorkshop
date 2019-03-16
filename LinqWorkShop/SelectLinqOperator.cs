@@ -59,17 +59,28 @@ namespace LinqWorkShop
         public static void FirstExercise()
         {
             //Convert TimeSpan from movies to Minutes duration.
+
+            var movies = DataGeneration.CreateMovies();
+
+            var durationMovies = movies.Select(x => x.Duration);
         }
 
         public static void SecondExercise()
         {
             //Convert Movies and take only the Name of actors
+
+            var movies = DataGeneration.CreateMovies();
+
+            var nameOfActors = movies.SelectMany(x => x.Actors).Select(x => x.Name);
         }
 
         public static void ThirdExercise()
         {
             //Create a new collection with Name of Movie and collection Actors name.
 
+            var movies = DataGeneration.CreateMovies();
+
+            var movieAndActors = movies.Select(x => new Tuple<string, List<Actor>>(x.Name, x.Actors));
 
         }
 

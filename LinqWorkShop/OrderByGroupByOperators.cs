@@ -44,16 +44,21 @@ namespace LinqWorkShop
         public static void FirstExercise()
         {
             //Movies Orderby duration
+            var moviesOrdered = DataGeneration.CreateMovies().OrderBy(x => x.Duration);
         }
 
         public static void SecondExercise()
         {
             //Take all actors from collection and GroupBy by Age.
+            var actorsByAge = DataGeneration.CreateMovies().SelectMany(x => x.Actors).GroupBy(x => x.Age);
         }
 
         public static void ThirdExercise()
         {
             //Take all actors Orderby inverse and GroupBy by sex
+            var sexActors = DataGeneration.CreateMovies().SelectMany(x => x.Actors)
+                .OrderBy(x => x.Name)
+                .GroupBy(x => x.Sex);
         }
     }
 }
