@@ -10,6 +10,7 @@ namespace LinqWorkShop
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
